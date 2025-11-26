@@ -1,0 +1,132 @@
+`timescale 1ns/1ps
+
+module processador_8bits (
+    input clk,
+    input rst,
+    output reg [7:0] reg_A_debug,
+    output reg [7:0] reg_B_debug,
+    output reg [7:0] pc_debug
+);
+
+    // --- Definição da Memória de Programa (ROM) ---
+    // 256 posições de 16 bits (Opcode 4 bits + Operando 8 bits)
+    // Formato da Instrução: {Opcode[3:0], Imediato[7:0]}
+    // Simplificação: Instrução de 12 bits armazenada em 16 para facilitar
+    reg [15:0] prog_mem [0:255];
+
+    // --- Definição da Memória de Dados (RAM) ---
+    reg [7:0] data_mem [0:255];
+
+    // --- Registradores Internos ---
+    reg [7:0] PC; // Program Counter
+    reg [7:0] A;  // Registrador A
+    reg [7:0] B;  // Registrador B
+    reg [15:0] IR; // Instruction Register
+
+    // --- Definição dos Opcodes ---
+    localparam ADD = 4'h0; // Soma A+B -> Mem[imm]
+    localparam SUB = 4'h1; // Subtrai A-B -> Mem[imm]
+    localparam LDA = 4'h2; // Mem[imm] -> A
+    localparam STA = 4'h3; // A -> Mem[imm]
+    localparam LDB = 4'h4; // Mem[imm] -> B
+    localparam STB = 4'h5; // B -> Mem[imm]
+    localparam LDC = 4'h6; // Immediato -> A
+    localparam JMP = 4'h7; // Se A==0, PC -> Immediato (Jump Zero)
+    // Instruções Extras (Criatividade)
+    localparam AND_OP = 4'h8; // A & B -> Mem[imm]
+    localparam OR_OP  = 4'h9; // A | B -> Mem[imm]
+    localparam HLT    = 4'hF; // Parar processador
+
+    // --- Máquina de Estados (FSM) ---
+    localparam FETCH   = 2'b00;
+    localparam EXECUTE = 2'b01;
+    localparam HALT    = 2'b10;
+    reg [1:0] state;
+
+    // --- Inicialização da Memória (Programa Teste) ---
+    integer i;
+    initial begin
+        for (i=0; i<256; i=i+1) begin
+            prog_mem[i] = 16'hF000; // Preenche com HLT
+            data_mem[i] = 8'h00;    // Limpa RAM
+        end
+
+        // PROGRAMA TESTE:
+        // 0: Carrega 10 no Reg A
+        prog_mem[0] = {LDC, 8'd10}; 
+        // 1: Armazena A na RAM[100]
+        prog_mem[1] = {STA, 8'd100};
+        // 2: Carrega 5 no Reg A (para mover para B)
+        prog_mem[2] = {LDC, 8'd5};
+        // 3: Salva A na RAM[101] temporariamente
+        prog_mem[3] = {STA, 8'd101};
+        // 4: Carrega RAM[101] no Reg B (B = 5)
+        prog_mem[4] = {LDB, 8'd101};
+        // 5: Recarrega A com RAM[100] (A = 10)
+        prog_mem[5] = {LDA, 8'd100};
+        // 6: Soma A+B (10+5=15) e salva na RAM[200]
+        prog_mem[6] = {ADD, 8'd200};
+        // 7: Subtrai A-B (10-5=5) e salva na RAM[201]
+        prog_mem[7] = {SUB, 8'd201};
+        // 8: AND A&B (10&5 = 1010 & 0101 = 0) e salva na RAM[202]
+        prog_mem[8] = {AND_OP, 8'd202};
+        // 9: Carrega 0 no A para testar o JMP
+        prog_mem[9] = {LDC, 8'd0};
+        // 10: Se A=0, Pula para endereço 12
+        prog_mem[10] = {JMP, 8'd12};
+        // 11: Instrução morta (não deve executar se pulou)
+        prog_mem[11] = {LDC, 8'd99}; 
+        // 12: HLT (Fim)
+        prog_mem[12] = {HLT, 8'd0};
+    end
+
+    // --- Lógica Sequencial do Processador ---
+    always @(posedge clk or posedge rst) begin
+        if (rst) begin
+            PC <= 8'd0;
+            state <= FETCH;
+            A <= 0;
+            B <= 0;
+            IR <= 0;
+        end else begin
+            // Saídas de Debug
+            reg_A_debug <= A;
+            reg_B_debug <= B;
+            pc_debug <= PC;
+
+            case (state)
+                FETCH: begin
+                    IR <= prog_mem[PC];
+                    PC <= PC + 1;
+                    state <= EXECUTE;
+                end
+
+                EXECUTE: begin
+                    case (IR[15:12]) // Opcode
+                        ADD: data_mem[IR[7:0]] <= A + B;
+                        SUB: data_mem[IR[7:0]] <= A - B;
+                        LDA: A <= data_mem[IR[7:0]];
+                        STA: data_mem[IR[7:0]] <= A;
+                        LDB: B <= data_mem[IR[7:0]];
+                        STB: data_mem[IR[7:0]] <= B;
+                        LDC: A <= IR[7:0]; // Carrega imediato
+                        JMP: begin
+                            if (A == 0) PC <= IR[7:0]; // Pula se A==0
+                        end
+                        AND_OP: data_mem[IR[7:0]] <= A & B;
+                        OR_OP:  data_mem[IR[7:0]] <= A | B;
+                        HLT: state <= HALT;
+                        default: state <= FETCH;
+                    endcase
+                    if (IR[15:12] != HLT) state <= FETCH;
+                end
+
+                HALT: begin
+                    // Fica travado aqui até reset
+                    state <= HALT;
+                end
+            endcase
+        end
+    end
+
+endmodule

@@ -1,0 +1,6 @@
+
+State Machine - |processador_8bits|state
+Name state.FETCH state.HALT state.EXECUTE 
+state.FETCH 0 0 0 
+state.EXECUTE 1 0 1 
+state.HALT 1 1 0 

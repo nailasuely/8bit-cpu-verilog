@@ -1,0 +1,121 @@
+m255
+K4
+z2
+!s11f vlog 2020.1 2020.02, Feb 28 2020
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+Z0 dC:/Users/naila/Documents/GitHub/ci-digital/projeto-final
+valu_unit
+Z1 !s110 1764184023
+!i10b 1
+!s100 @C_mI]dnoel4dHIAKIHSN1
+Z2 !s11b Dg1SIo80bB@j0V0VzS_@n1
+Ib3=a?XbzH]Z1<`Ye7c;DF0
+Z3 VDg1SIo80bB@j0V0VzS_@n1
+R0
+Z4 w1764182256
+Z5 8processador_8bits.v
+Z6 Fprocessador_8bits.v
+!i122 12
+L0 4 23
+Z7 OV;L;2020.1;71
+r1
+!s85 0
+31
+Z8 !s108 1764184023.000000
+Z9 !s107 processador_8bits.v|
+Z10 !s90 -reportprogress|300|processador_8bits.v|
+!i113 1
+Z11 tCvgOpt 0
+vdata_memory
+R1
+!i10b 1
+!s100 ]BV0f;Rl_4DP0EV?K0Ndj0
+R2
+IJC;?K>H60==dFNJfXB4B10
+R3
+R0
+R4
+R5
+R6
+!i122 12
+L0 77 22
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vprocessador_8bits
+R1
+!i10b 1
+!s100 O:g^81D6K:GhQ@957DW9>3
+R2
+I6[^51;j_UcliS:0mQej]10
+R3
+R0
+R4
+R5
+R6
+!i122 12
+L0 101 78
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vprogram_memory
+R1
+!i10b 1
+!s100 P^j9@=J1DSM2:hTK[0J@E1
+R2
+I_[e5A;2FLl54aiMf<NGFl0
+R3
+R0
+R4
+R5
+R6
+!i122 12
+L0 29 46
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!i113 1
+R11
+vtb_processador
+R1
+!i10b 1
+!s100 Jo56bOF[Qg9foa@g@Ye_W1
+R2
+IQ>abFS<bASHI=e4nWMN9;1
+R3
+R0
+w1764182247
+8tb_processador.v
+Ftb_processador.v
+!i122 13
+L0 4 34
+R7
+r1
+!s85 0
+31
+R8
+!s107 tb_processador.v|
+!s90 -reportprogress|300|tb_processador.v|
+!i113 1
+R11

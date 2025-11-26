@@ -1,0 +1,655 @@
+$date
+	Wed Nov 26 16:07:06 2025
+$end
+$version
+	ModelSim Version 2020.1
+$end
+$timescale
+	1ps
+$end
+
+$scope module tb_processador $end
+$var reg 1 ! clk $end
+$var reg 1 " rst $end
+$var wire 1 # debug_A [7] $end
+$var wire 1 $ debug_A [6] $end
+$var wire 1 % debug_A [5] $end
+$var wire 1 & debug_A [4] $end
+$var wire 1 ' debug_A [3] $end
+$var wire 1 ( debug_A [2] $end
+$var wire 1 ) debug_A [1] $end
+$var wire 1 * debug_A [0] $end
+$var wire 1 + debug_B [7] $end
+$var wire 1 , debug_B [6] $end
+$var wire 1 - debug_B [5] $end
+$var wire 1 . debug_B [4] $end
+$var wire 1 / debug_B [3] $end
+$var wire 1 0 debug_B [2] $end
+$var wire 1 1 debug_B [1] $end
+$var wire 1 2 debug_B [0] $end
+$var wire 1 3 debug_PC [7] $end
+$var wire 1 4 debug_PC [6] $end
+$var wire 1 5 debug_PC [5] $end
+$var wire 1 6 debug_PC [4] $end
+$var wire 1 7 debug_PC [3] $end
+$var wire 1 8 debug_PC [2] $end
+$var wire 1 9 debug_PC [1] $end
+$var wire 1 : debug_PC [0] $end
+$var wire 1 ; debug_State [3] $end
+$var wire 1 < debug_State [2] $end
+$var wire 1 = debug_State [1] $end
+$var wire 1 > debug_State [0] $end
+
+$scope module DUT $end
+$var parameter 32 ? FETCH $end
+$var parameter 32 @ EXECUTE $end
+$var parameter 32 A HALT $end
+$var parameter 32 B ADD $end
+$var parameter 32 C SUB $end
+$var parameter 32 D LDA $end
+$var parameter 32 E STA $end
+$var parameter 32 F LDB $end
+$var parameter 32 G STB $end
+$var parameter 32 H LDC $end
+$var parameter 32 I JMP $end
+$var parameter 32 J SWAP $end
+$var parameter 32 K JNZ $end
+$var parameter 32 L LDCB $end
+$var parameter 32 M HLT $end
+$var wire 1 N clk $end
+$var wire 1 O rst $end
+$var wire 1 # debug_A [7] $end
+$var wire 1 $ debug_A [6] $end
+$var wire 1 % debug_A [5] $end
+$var wire 1 & debug_A [4] $end
+$var wire 1 ' debug_A [3] $end
+$var wire 1 ( debug_A [2] $end
+$var wire 1 ) debug_A [1] $end
+$var wire 1 * debug_A [0] $end
+$var wire 1 + debug_B [7] $end
+$var wire 1 , debug_B [6] $end
+$var wire 1 - debug_B [5] $end
+$var wire 1 . debug_B [4] $end
+$var wire 1 / debug_B [3] $end
+$var wire 1 0 debug_B [2] $end
+$var wire 1 1 debug_B [1] $end
+$var wire 1 2 debug_B [0] $end
+$var wire 1 3 debug_PC [7] $end
+$var wire 1 4 debug_PC [6] $end
+$var wire 1 5 debug_PC [5] $end
+$var wire 1 6 debug_PC [4] $end
+$var wire 1 7 debug_PC [3] $end
+$var wire 1 8 debug_PC [2] $end
+$var wire 1 9 debug_PC [1] $end
+$var wire 1 : debug_PC [0] $end
+$var wire 1 ; debug_State [3] $end
+$var wire 1 < debug_State [2] $end
+$var wire 1 = debug_State [1] $end
+$var wire 1 > debug_State [0] $end
+$var reg 8 P PC [7:0] $end
+$var reg 8 Q A [7:0] $end
+$var reg 8 R B [7:0] $end
+$var reg 16 S IR [15:0] $end
+$var reg 2 T state [1:0] $end
+$var wire 1 U alu_result [7] $end
+$var wire 1 V alu_result [6] $end
+$var wire 1 W alu_result [5] $end
+$var wire 1 X alu_result [4] $end
+$var wire 1 Y alu_result [3] $end
+$var wire 1 Z alu_result [2] $end
+$var wire 1 [ alu_result [1] $end
+$var wire 1 \ alu_result [0] $end
+$var wire 1 ] alu_zero $end
+$var wire 1 ^ rom_data [15] $end
+$var wire 1 _ rom_data [14] $end
+$var wire 1 ` rom_data [13] $end
+$var wire 1 a rom_data [12] $end
+$var wire 1 b rom_data [11] $end
+$var wire 1 c rom_data [10] $end
+$var wire 1 d rom_data [9] $end
+$var wire 1 e rom_data [8] $end
+$var wire 1 f rom_data [7] $end
+$var wire 1 g rom_data [6] $end
+$var wire 1 h rom_data [5] $end
+$var wire 1 i rom_data [4] $end
+$var wire 1 j rom_data [3] $end
+$var wire 1 k rom_data [2] $end
+$var wire 1 l rom_data [1] $end
+$var wire 1 m rom_data [0] $end
+$var wire 1 n ram_q [7] $end
+$var wire 1 o ram_q [6] $end
+$var wire 1 p ram_q [5] $end
+$var wire 1 q ram_q [4] $end
+$var wire 1 r ram_q [3] $end
+$var wire 1 s ram_q [2] $end
+$var wire 1 t ram_q [1] $end
+$var wire 1 u ram_q [0] $end
+$var reg 1 v ram_we $end
+$var reg 8 w ram_data_in [7:0] $end
+$var wire 1 x ram_addr [7] $end
+$var wire 1 y ram_addr [6] $end
+$var wire 1 z ram_addr [5] $end
+$var wire 1 { ram_addr [4] $end
+$var wire 1 | ram_addr [3] $end
+$var wire 1 } ram_addr [2] $end
+$var wire 1 ~ ram_addr [1] $end
+$var wire 1 !! ram_addr [0] $end
+
+$scope module ULA $end
+$var parameter 4 "! ADD $end
+$var parameter 4 #! SUB $end
+$var parameter 4 $! AND_OP $end
+$var parameter 4 %! OR_OP $end
+$var wire 1 &! op_a [7] $end
+$var wire 1 '! op_a [6] $end
+$var wire 1 (! op_a [5] $end
+$var wire 1 )! op_a [4] $end
+$var wire 1 *! op_a [3] $end
+$var wire 1 +! op_a [2] $end
+$var wire 1 ,! op_a [1] $end
+$var wire 1 -! op_a [0] $end
+$var wire 1 .! op_b [7] $end
+$var wire 1 /! op_b [6] $end
+$var wire 1 0! op_b [5] $end
+$var wire 1 1! op_b [4] $end
+$var wire 1 2! op_b [3] $end
+$var wire 1 3! op_b [2] $end
+$var wire 1 4! op_b [1] $end
+$var wire 1 5! op_b [0] $end
+$var wire 1 6! opcode [3] $end
+$var wire 1 7! opcode [2] $end
+$var wire 1 8! opcode [1] $end
+$var wire 1 9! opcode [0] $end
+$var reg 8 :! result [7:0] $end
+$var reg 1 ;! is_zero $end
+$upscope $end
+
+$scope module ROM $end
+$var parameter 4 <! ADD $end
+$var parameter 4 =! SUB $end
+$var parameter 4 >! LDA $end
+$var parameter 4 ?! STA $end
+$var parameter 4 @! LDB $end
+$var parameter 4 A! STB $end
+$var parameter 4 B! LDC $end
+$var parameter 4 C! JMP $end
+$var parameter 4 D! SWAP $end
+$var parameter 4 E! JNZ $end
+$var parameter 4 F! LDC_B $end
+$var parameter 4 G! HLT $end
+$var wire 1 H! addr [7] $end
+$var wire 1 I! addr [6] $end
+$var wire 1 J! addr [5] $end
+$var wire 1 K! addr [4] $end
+$var wire 1 L! addr [3] $end
+$var wire 1 M! addr [2] $end
+$var wire 1 N! addr [1] $end
+$var wire 1 O! addr [0] $end
+$var reg 16 P! data_out [15:0] $end
+$var integer 32 Q! i $end
+$upscope $end
+
+$scope module RAM $end
+$var wire 1 N clk $end
+$var wire 1 R! we $end
+$var wire 1 x addr [7] $end
+$var wire 1 y addr [6] $end
+$var wire 1 z addr [5] $end
+$var wire 1 { addr [4] $end
+$var wire 1 | addr [3] $end
+$var wire 1 } addr [2] $end
+$var wire 1 ~ addr [1] $end
+$var wire 1 !! addr [0] $end
+$var wire 1 S! data_in [7] $end
+$var wire 1 T! data_in [6] $end
+$var wire 1 U! data_in [5] $end
+$var wire 1 V! data_in [4] $end
+$var wire 1 W! data_in [3] $end
+$var wire 1 X! data_in [2] $end
+$var wire 1 Y! data_in [1] $end
+$var wire 1 Z! data_in [0] $end
+$var reg 8 [! data_out [7:0] $end
+$var integer 32 \! k $end
+$upscope $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+1"
+b0 P
+b0 Q
+b0 R
+b0 S
+b0 T
+0v
+b0 w
+b0 :!
+1;!
+b110000000000101 P!
+b0 [!
+b0 ?
+b1 @
+b10 A
+b0 B
+b1 C
+b10 D
+b11 E
+b100 F
+b101 G
+b110 H
+b111 I
+b1000 J
+b1001 K
+b1010 L
+b1111 M
+b0 "!
+b1 #!
+b1000 $!
+b1001 %!
+b0 <!
+b1 =!
+b10 >!
+b11 ?!
+b100 @!
+b101 A!
+b110 B!
+b111 C!
+b1000 D!
+b1001 E!
+b1010 F!
+b1111 G!
+b100000000 Q!
+b100000000 \!
+0*
+0)
+0(
+0'
+0&
+0%
+0$
+0#
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0:
+09
+08
+07
+06
+05
+04
+03
+0>
+0=
+0<
+0;
+0\
+0[
+0Z
+0Y
+0X
+0W
+0V
+0U
+1]
+1m
+0l
+1k
+0j
+0i
+0h
+0g
+0f
+0e
+0d
+0c
+0b
+0a
+1`
+1_
+0^
+0u
+0t
+0s
+0r
+0q
+0p
+0o
+0n
+0!!
+0~
+0}
+0|
+0{
+0z
+0y
+0x
+1O
+0N
+0Z!
+0Y!
+0X!
+0W!
+0V!
+0U!
+0T!
+0S!
+0R!
+0O!
+0N!
+0M!
+0L!
+0K!
+0J!
+0I!
+0H!
+09!
+08!
+07!
+06!
+05!
+04!
+03!
+02!
+01!
+00!
+0/!
+0.!
+0-!
+0,!
+0+!
+0*!
+0)!
+0(!
+0'!
+0&!
+$end
+#10000
+1!
+1N
+#20000
+0!
+0N
+#30000
+1!
+1N
+#40000
+0"
+0!
+0O
+0N
+#50000
+1!
+1N
+b110000000000101 S
+b1 P
+b1 T
+1>
+1:
+1O!
+18!
+17!
+1!!
+1}
+b1010000000000011 P!
+1l
+0k
+0_
+1^
+#60000
+0!
+0N
+#70000
+1!
+1N
+b101 Q
+b0 T
+0>
+1*
+1(
+1-!
+1+!
+#80000
+0!
+0N
+#90000
+1!
+1N
+b1010000000000011 S
+b10 P
+b1 T
+1>
+0:
+19
+0O!
+1N!
+07!
+16!
+1~
+0}
+b1100100 P!
+0m
+0l
+1k
+1h
+1g
+0`
+0^
+#100000
+0!
+0N
+#110000
+1!
+1N
+b11 R
+b0 T
+0>
+12
+11
+15!
+14!
+#120000
+0!
+0N
+#130000
+1!
+1N
+b1100100 S
+b11 P
+b1 T
+1>
+1:
+1O!
+08!
+06!
+0!!
+0~
+1}
+1z
+1y
+b1000 :!
+0;!
+b1000001100101 P!
+1v
+0]
+1m
+1a
+1R!
+1Y
+0v
+1v
+b1000 w
+1W!
+#140000
+0!
+0N
+#150000
+1!
+1N
+b0 T
+0>
+0v
+b0 w
+b1000 [!
+0R!
+1r
+0W!
+#160000
+0!
+0N
+#170000
+1!
+1N
+b1000001100101 S
+b100 P
+b1 T
+1>
+0:
+09
+18
+0O!
+0N!
+1M!
+19!
+1!!
+b0 [!
+b10 :!
+b1000000000000000 P!
+1v
+b1000 w
+1R!
+1W!
+0m
+0k
+0h
+0g
+0a
+1^
+0r
+1[
+0Y
+0v
+b0 w
+1v
+b10 w
+1Y!
+0W!
+#180000
+0!
+0N
+#190000
+1!
+1N
+b0 T
+0>
+0v
+b0 w
+b10 [!
+0R!
+1t
+0Y!
+#200000
+0!
+0N
+#210000
+1!
+1N
+b1000000000000000 S
+b101 P
+b1 T
+1>
+1:
+1O!
+09!
+16!
+0!!
+0}
+0z
+0y
+b0 [!
+b1 :!
+b110000000000001 P!
+1m
+1`
+1_
+0^
+0t
+1\
+0[
+#220000
+0!
+0N
+#230000
+1!
+1N
+b11 Q
+b101 R
+b0 T
+0>
+01
+10
+1)
+0(
+04!
+13!
+1,!
+0+!
+#240000
+0!
+0N
+#250000
+1!
+1N
+b110000000000001 S
+b110 P
+b1 T
+1>
+0:
+19
+0O!
+1N!
+18!
+17!
+06!
+1!!
+b0 :!
+1;!
+b11000011001000 P!
+1]
+0m
+1j
+1g
+1f
+1a
+0_
+0\
+#260000
+0!
+0N
+#270000
+1!
+1N
+b1 Q
+b0 T
+0>
+0)
+0,!
+#280000
+0!
+0N
+#290000
+1!
+1N
+b11000011001000 S
+b111 P
+b1 T
+1>
+1:
+1O!

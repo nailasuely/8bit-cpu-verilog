@@ -1,0 +1,121 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "debug_A[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_A[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_A[2]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_A[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_A[4]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_A[5]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_A[6]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_A[7]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[2]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[4]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[5]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[6]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_B[7]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[1]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[2]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[3]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[4]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[5]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[6]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_PC[7]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_State[0]",
+					"strict" : false
+				},
+				{
+					"name" : "debug_State[1]",
+					"strict" : false
+				},
+				{
+					"name" : "clk",
+					"strict" : false
+				},
+				{
+					"name" : "rst",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

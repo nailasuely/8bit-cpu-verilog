@@ -1,0 +1,17 @@
+Analysis & Synthesis Status : Successful - Wed Nov 26 15:38:04 2025
+Quartus Prime Version : 24.1std.0 Build 1077 03/04/2025 SC Lite Edition
+Revision Name : processador_8bits
+Top-level Entity Name : processador_8bits
+Family : Cyclone V
+Logic utilization (in ALMs) : N/A
+Total registers : 2075
+Total pins : 30
+Total virtual pins : 0
+Total block memory bits : 3,072
+Total DSP Blocks : 0
+Total HSSI RX PCSs : 0
+Total HSSI PMA RX Deserializers : 0
+Total HSSI TX PCSs : 0
+Total HSSI PMA TX Serializers : 0
+Total PLLs : 0
+Total DLLs : 0
