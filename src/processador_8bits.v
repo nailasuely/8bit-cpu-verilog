@@ -1,6 +1,5 @@
 `timescale 1ns/1ps
 
-// Módulo da ULA
 module alu_unit (
     input  [7:0] op_a,
     input  [7:0] op_b,
@@ -25,7 +24,7 @@ module alu_unit (
     end
 endmodule
 
-// Módulo da ROM
+// --- Módulo da ROM ---
 module program_memory (
     input  [7:0] addr,
     output reg [15:0] data_out
@@ -73,7 +72,7 @@ module program_memory (
     end
 endmodule
 
-// Módulo da RAM
+// --- Módulo da RAM ---
 module data_memory (
     input clk,
     input we,
@@ -97,7 +96,7 @@ module data_memory (
     end
 endmodule
 
-//Módulo Principal 
+// --- Módulo Principal ---
 module processador_8bits (
     input wire clk,
     input wire rst,
